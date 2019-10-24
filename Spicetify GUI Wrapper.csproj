@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Spicetify.cs" />
+    <Compile Include="Classes\Spicetify\App\Manifest.cs" />
+    <Compile Include="Classes\Spicetify\Options.cs" />
+    <Compile Include="Classes\Spicetify\Theme.cs" />
+    <Compile Include="Classes\Spicetify\Extension.cs" />
+    <Compile Include="Classes\Spicetify\App.cs" />
     <Compile Include="UI\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
