@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spicetify_GUI_Wrapper.Classes
+namespace Spicetify.Classes
 {
-    public partial class Spicetify
+    public class Extension
     {
-        public class Extension
+        public Extension(FileInfo file)
         {
-            public Extension(FileInfo file)
-            {
-            }
         }
     }
 }

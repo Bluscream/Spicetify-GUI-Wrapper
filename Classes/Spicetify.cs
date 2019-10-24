@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
+using Spicetify.Classes;
+using Spicetify_GUI_Wrapper;
 
-namespace Spicetify_GUI_Wrapper.Classes
+namespace Spicetify
 {
     public partial class Spicetify
     {

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommandLine;
-using Spicetify_GUI_Wrapper.Classes;
 
 namespace Spicetify_GUI_Wrapper
 {
@@ -12,7 +11,7 @@ namespace Spicetify_GUI_Wrapper
     {
         public static Options Arguments = new Options();
 
-        public static Spicetify Spicetify;
+        public static Spicetify.Spicetify Spicetify;
 
         public class Options
         {
@@ -45,7 +44,7 @@ namespace Spicetify_GUI_Wrapper
         private static void Main(string[] args)
         {
             Parser.Default.ParseArguments<Options>(args).WithParsed(o => Arguments = o).WithNotParsed(o => Logger.Error("Unable to parse arguments: {0}", o.First().Tag));
-            Spicetify = new Spicetify(args);
+            Spicetify = new Spicetify.Spicetify(args);
 #if !DEBUG
             if (Arguments.ConsoleEnabled)
 #else

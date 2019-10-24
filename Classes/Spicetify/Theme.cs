@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spicetify_GUI_Wrapper.Classes
+namespace Spicetify.Classes
 {
-    public partial class Spicetify
+    public class Theme
     {
-        public class Theme
+        public Theme(DirectoryInfo directory)
         {
-            public Theme(DirectoryInfo directory)
-            {
-            }
         }
     }
 }
