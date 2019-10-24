@@ -15,22 +15,18 @@ namespace Spicetify.Classes
             public string de { get; set; }
             public string el { get; set; }
             public string es { get; set; }
-            public string es_419 { get; set; }
             public string fi { get; set; }
             public string fr { get; set; }
-            public string fr_CA { get; set; }
             public string hu { get; set; }
             public string id { get; set; }
             public string it { get; set; }
             public string ja { get; set; }
             public string nl { get; set; }
             public string pl { get; set; }
-            public string pt_br { get; set; }
             public string sv { get; set; }
             public string th { get; set; }
             public string tr { get; set; }
             public string vi { get; set; }
-            public string zh_hant { get; set; }
             public string zsm { get; set; }
         }
 
@@ -41,23 +37,19 @@ namespace Spicetify.Classes
             public string de { get; set; }
             public string el { get; set; }
             public string es { get; set; }
-            public string es_419 { get; set; }
 
             public string fi { get; set; }
             public string fr { get; set; }
-            public string fr_ca { get; set; }
             public string hu { get; set; }
             public string id { get; set; }
             public string it { get; set; }
             public string ja { get; set; }
             public string nl { get; set; }
             public string pl { get; set; }
-            public string pt_br { get; set; }
             public string sv { get; set; }
             public string th { get; set; }
             public string tr { get; set; }
             public string vi { get; set; }
-            public string zh_hant { get; set; }
             public string zsm { get; set; }
         }
 

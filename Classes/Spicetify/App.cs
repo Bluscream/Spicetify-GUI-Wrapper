@@ -37,38 +37,39 @@ namespace Spicetify.Classes
             {
                 try
                 {
-                    var doc = XElement.Load(indexHTML.FullName);
-                    var comments = doc.DescendantNodes().OfType<XComment>();
-                    foreach (XComment comment in comments)
+                    var doc = new HtmlDocument();
+                    doc.Load(indexHTML.FullName);
+                    // var comments = doc.CreateComment().OfType<XComment>();
+                    var comment =
+                        doc.DocumentNode.SelectSingleNode(
+                            "//comment()[contains(., '//')]");
+                    foreach (var commentline in comment.InnerHtml.SplitToLines())
                     {
-                        foreach (var commentline in comment.Value.SplitToLines())
+                        var match = lineRegex.Match(commentline);
+                        if (match.Success)
                         {
-                            var match = lineRegex.Match(commentline);
-                            if (match.Success)
+                            var val = match.Groups[2].Value;
+                            switch (match.Groups[1].Value.ToUpperInvariant())
                             {
-                                var val = match.Groups[2].Value;
-                                switch (match.Groups[1].Value.ToUpperInvariant())
-                                {
-                                    case "NAME":
-                                        Name = val;
-                                        break;
+                                case "NAME":
+                                    Name = val;
+                                    break;
 
-                                    case "VERSION":
-                                        RawVersion = val;
-                                        break;
+                                case "VERSION":
+                                    RawVersion = val;
+                                    break;
 
-                                    case "AUTHOR":
-                                        Author = val;
-                                        break;
+                                case "AUTHOR":
+                                    Author = val;
+                                    break;
 
-                                    case "DESCRIPTION":
-                                        Description = val;
-                                        break;
+                                case "DESCRIPTION":
+                                    Description = val;
+                                    break;
 
-                                    default:
-                                        Logger.Warn("Unknown AppInfo DataType: %s", match.Groups[1].Value);
-                                        break;
-                                }
+                                default:
+                                    Logger.Warn("Unknown AppInfo DataType: %s", match.Groups[1].Value);
+                                    break;
                             }
                         }
                     }

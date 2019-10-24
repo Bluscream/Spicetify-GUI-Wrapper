@@ -24,9 +24,14 @@ namespace Spicetify_GUI_Wrapper
         private void FillApps(bool force = false)
         {
             var apps = Program.Spicetify.Apps;
-            if (force || apps is null || apps.Count < 1) apps = Program.Spicetify.LoadApps();
+            force = force || apps is null || apps.Count < 1;
+            if (force) apps = Program.Spicetify.LoadApps(); // Proper timeouts
             lst_apps.Items.Clear();
             foreach (var app in apps) lst_apps.Items.Add(app, app.Enabled);
+            if (force)
+            {
+                Logger.Log("Loaded {0} apps from {1}.", apps.Count, Program.Spicetify.AppsDirectory.FullName.Quote()); Logger.Trace(apps.ToJson(false));
+            }
         }
 
         private void btn_apply_Click(object sender, EventArgs e)

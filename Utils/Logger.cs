@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using NLog;
 
@@ -27,6 +28,8 @@ namespace Spicetify_GUI_Wrapper
         {
             LogEventInfo logEvent = new LogEventInfo(level: logLevel, loggerName: NLogger.Name, formatProvider: CultureInfo.InvariantCulture, message: msg, parameters: format);
             NLogger.Log(typeof(Logger), logEvent);
+            if (format.Length > 0) Console.WriteLine(msg, format);
+            else Console.WriteLine(msg);
         }
     }
 }
